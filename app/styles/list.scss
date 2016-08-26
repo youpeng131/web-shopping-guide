@@ -1,0 +1,485 @@
+$icon-font-path: '../fonts/';
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  background-color: #f5f5f5;
+}
+
+.list {
+
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, map {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, ol, dl, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    cursor: pointer;
+    color: #666;
+    &:hover {
+      color: #f69;
+      text-decoration: none;
+    }
+  }
+
+  .red_f {
+    color: #f69;
+  }
+
+  .index_deal {
+    margin-top: 31px;
+  }
+  /* Custom page header */
+  .header {
+    width: 1200px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 500;
+    .inner {
+      float: left;
+      margin-top: 40px;
+    }
+    .search {
+      width: 520px;
+      position: absolute;
+      top: 21px;
+      left: 50%;
+      margin-left: -240px;
+      .search-tab {
+        span {
+          display: inline-block;
+          text-align: center;
+          width: 56px;
+          background-color: #f2f2f2;
+          line-height: 24px;
+          cursor: pointer;
+        }
+        .active {
+          background-color: #f69;
+          color: #fff;
+        }
+      }
+      .search-box {
+        height: 30px;
+        position: relative;
+        .search-txt {
+          float: left;
+          border: 2px solid #f69;
+          width: 437px;
+          line-height: 28px;
+          height: 32px;
+          padding: 0;
+          margin: 0;
+          padding-left: 8px;
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+        .search-btn {
+          float: left;
+          width: 70px;
+          height: 32px;
+          background: #f69 url('../images/serch.png') no-repeat center;
+          cursor: pointer;
+        }
+      }
+      .hotword {
+        padding-top: 12px;
+        a {
+          padding-right: 5px;
+          text-decoration: none;
+          &:hover {
+            color: #f69;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 40px;
+      padding-bottom: 19px;
+    }
+  }
+  #nav {
+    height: 50px;
+    #def-nav {
+      min-width: 1260px;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 1px solid #f69;
+      background-color: #fff;
+      .inner {
+        width: 1200px;
+        margin: 0 auto;
+        ul {
+          li {
+            float: left;
+            a {
+              height: 49px;
+              float: left;
+              font-size: 14px;
+              font-weight: bolder;
+              color: #333;
+              padding: 0 15px;
+              margin-right: 12px;
+              &:hover {
+                text-decoration: none;
+                border-color: #f69;
+                color: #f69;
+                border-bottom: 2px solid;
+              }
+            }
+            a:focus {
+              outline: none;
+            }
+            a.active {
+              border-color: #f69;
+              color: #f69;
+              border-bottom: 2px solid;
+            }
+            .red {
+              color: #f69;
+            }
+            .line {
+              display: inline-block;
+              height: 16px;
+              vertical-align: middle;
+              width: 1px;
+              background: #D6D7D8;
+              margin: 0 15px;
+            }
+          }
+          .dropdown {
+            position: relative;
+            height: 48px;
+            a {
+              .arrow {
+                border: 3px solid transparent;
+                border-top: 3px solid #696A6A;
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                margin-top: -2px;
+              }
+            }
+            .dropdown-menu {
+              position: absolute;
+              top: 47px;
+              left: -32px;
+              z-index: 999;
+              background-color: #fff;
+              border: 1px solid #eee;
+              border-top: none;
+              line-height: 20px;
+              width: 120px;
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    /* Custom page footer */
+    .footer {
+      padding-top: 19px;
+      color: #777;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .container-narrow > hr {
+      margin: 30px 0;
+    }
+
+    /* Main marketing message and sign up button */
+    .jumbotron {
+      text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+      .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+    }
+
+    /* Supporting marketing content */
+    .marketing {
+      margin: 40px 0;
+      p + h4 {
+        margin-top: 28px;
+      }
+    }
+
+    /* Responsive: Portrait tablets and up */
+    @media screen and (min-width: 1200px) {
+      .container {
+        max-width: 1200px;
+      }
+
+      /* Remove the padding we set earlier */
+      .header,
+      .marketing,
+      .footer {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* Space out the masthead */
+      .header {
+        margin-bottom: 30px;
+      }
+
+      /* Remove the bottom border on the jumbotron for visual effect */
+      .jumbotron {
+        border-bottom: 0;
+      }
+    }
+  }
+  .list-banner {
+    height: 300px;
+    width: 100%;
+    background-color: #f69;
+  }
+  .index_deal {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    .deals_tit {
+      line-height: 22px;
+      margin-top: -5px;
+      margin-bottom: 12px;
+      h3 {
+        font-size: 14px;
+        font-family: "microsoft yahei";
+        color: #fbffff;
+        text-decoration: none;
+        line-height: 33px;
+        display: inline-block;
+        text-align: left;
+        b {
+          color: #ff6767;
+          font-size: 16px;
+          position: absolute;
+          left: 110px;
+          width: 71px;
+        }
+      }
+      .con {
+        border-bottom: 1px solid #ff6767;
+        text-align: left;
+        position: relative;
+        top: 1px;
+        z-index: 2;
+        .sort {
+          float: right;
+          margin-left: 0;
+          color: #666;
+          font-size: 0;
+          margin-top: 11px;
+          height: 25px;
+          em {
+            width: 20px;
+            height: 20px;
+            color: #868686;
+            font-size: 12px;
+            margin: 0 9px;
+            font-style: normal;
+          }
+          b {
+            color: #ccc;
+            font-weight: 400;
+            display: inline-block;
+            width: 5px;
+            font-size: 12px;
+          }
+          span {
+            color: #ff6767;
+            margin: 0 10px;
+            font-size: 12px;
+          }
+          a {
+            color: #ff6767;
+            display: inline-block;
+            border-width: 1px 0 1px 1px;
+            span {
+              border: 1px solid #ff6767;
+              padding: 3px 10px 4px 9px;
+              margin: 0;
+              border-bottom: none;
+            }
+            &:hover {
+              color: #ff6767;
+            }
+          }
+          .on span {
+            background-color: #ff6767;
+            color: #fff;
+          }
+          .on a {
+            color: #ff6767;
+            &:hover {
+              color: #ff6767;
+            }
+          }
+        }
+        .tonew {
+          position: relative;
+          font-size: 18px;
+          font-family: "微软雅黑";
+          color: #2f2f2f;
+          text-decoration: none;
+          line-height: 33px;
+          display: inline-block;
+          text-align: left;
+          em {
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            background-color: #ff6767;
+            position: absolute;
+            top: 15px;
+            left: 97px;
+          }
+        }
+      }
+    }
+    #dealWarpperwide_e {
+      .dealbox {
+        .dealad {
+          width: 283px;
+          height: 345px;
+          margin: 0 20px 30px 0;
+          background-color: #fff;
+          position: relative;
+        }
+        .dealad {
+          z-index: 1;
+          float: left;
+          height: 347px;
+          width: 285px;
+          padding: 0;
+          margin: 0 20px 15px 0;
+          display: inline;
+          text-align: left;
+          border: 1px solid transparent;
+          cursor: pointer;
+          h3 {
+            width: 271px;
+            padding: 0 0 0 12px;
+            height: 17px;
+            font: 12px/20px "微软雅黑";
+            color: #666;
+            text-align: left;
+            background-color: #fff;
+            overflow: hidden;
+            a {
+              color: #999;
+            }
+          }
+          h4 {
+            width: 286px;
+            padding-left: 12px;
+            top: 1px;
+            height: 30px;
+            padding: 0 12px;
+            overflow: hidden;
+            text-align: right;
+            line-height: 36px;
+            span {
+              float: left;
+              width: 184px;
+              font: 16px/25px "微软雅黑";
+              color: #333;
+              overflow: hidden;
+              text-align: left;
+              margin-top: 4px;
+              display: inline-block;
+              a {
+                display: inline-block;
+                width: auto;
+                height: 31px;
+                border-radius: 3px;
+                color: #333;
+                background: 0 0;
+              }
+            }
+            a {
+              display: inline-block;
+              width: 70px;
+              height: 25px;
+              background: url(http://z6.tuanimg.com/v3/src/img/common/look_btn.png) no-repeat rgba(0, 0, 0, 0);
+            }
+          }
+          &:hover {
+            border: 1px solid #f69;
+          }
+        }
+        .dealad > a {
+          font-size: 0;
+          display: block;
+          background-color: #fff;
+          height: 290px;
+          img {
+            width: 283px;
+            height: 283px;
+          }
+        }
+        .deal {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .totalPages{
+    text-align: center;
+    margin: 30px 0;
+    .pagination{
+      li{
+        a{
+          color: #ec1611;
+        }
+      }
+      .active{
+        a{
+          background-color: #ec1611;
+          border-color: #ec1611;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
