@@ -32,13 +32,13 @@
     </div>
     <div class="search clearfix">
       <div class="search-tab">
-        <span class="active">宝贝</span><span>店铺</span>
+        <span class="active">宝贝</span>
       </div>
       <div class="search-box">
-        <input type="text" class="search-txt" placeholder="这个夏天背心外穿最时髦！"/>
-        <span class="search-btn"></span>
+        <input type="text" class="search-txt" id="search_text" placeholder="请输入宝贝名"/>
+        <span class="search-btn" onclick="search()"></span>
       </div>
-      <div class="hotword">
+     <!--  <div class="hotword">
         <a href="#" class="red_f" target="_blank">连衣裙</a>
         <a href="#" target="_blank">拖鞋</a>
         <a href="#" target="_blank">短裤</a>
@@ -49,7 +49,7 @@
         <a href="#" class="red_f" target="_blank">凉鞋</a>
         <a href="#" target="_blank">双肩包</a>
         <a href="#" target="_blank">帽子</a>
-      </div>
+      </div> -->
     </div>
   </div>
   <div id="nav">
@@ -57,43 +57,20 @@
       <div id="def-nav">
         <div class="inner">
           <ul>
-            <li><a href="#" class="active">首页</a></li>
-            <li><a href="#">精选</a></li>
-            <li><a href="#">上衣</a></li>
-            <li><a href="#">裙子</a></li>
-            <li><a href="#">裤子</a></li>
-            <li><a href="#">鞋子</a></li>
-            <li><a href="#">包包</a></li>
-            <li><a href="#">配饰</a></li>
-            <li class="dropdown">
-              <a href="javascript:void(0);" class="dropdown-toggle nav-abroad-slide" data-toggle="dropdown"
-                 role="button"
-                 aria-haspopup="true"
-                 aria-expanded="false">更多
-                <span class="arrow"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">内衣</a></li>
-                <li><a href="#">美妆</a></li>
-                <li><a href="#">男装</a></li>
-                <li><a href="#">童装</a></li>
-                <li><a href="#">家居</a></li>
-                <li><a href="#">小家电</a></li>
-                <li><a href="#">食品</a></li>
-              </ul>
-            </li>
-            <li><span class="line"></span></li>
-            <li><a href="#" class="red">Hi范儿</a></li>
-            <li><a href="#" class="red">品牌特卖</a></li>
+            <li><a href="/" class="">首页</a></li>
+            <li><a href="#" class="active" id="show_type"></a></li>
+            <li><a href="/qg.html" class="">抢购</a></li>
+            <li><a href="/rx.html" class="">热销</a></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <div class="list-banner"></div>
-  <div class="area index_deal" id="today_deals">
+  <div class="list-banner" id='create_ad'></div>
+  <div class="area index_deal" id="today_deals" style="display: none;">
     <div class="deals_tit">
       <div class="con">
-        <div class="sort">
+        <!-- <div class="sort">
           <span>排序</span>
           <a href="#" class=""><span>最新</span></a>
           <a href="#" class="on"><span>最热</span></a>
@@ -103,58 +80,18 @@
           <a href="#" class=""><em>男</em></a><b>|</b>
           <a href="#" class=""><em>女</em></a><b>|</b>
           <a href="#" class=""><em>辣妈</em></a>
-        </div>
+        </div> -->
         <h3>
-          <a class="tonew to2" target="_blank" href="#">今日已更新<em></em><b>8891款<span></span></b></a>
+          <a class="tonew to2" target="_blank" href="#">最近上架<!-- <em></em><b>8891款<span></span></b> --></a>
         </h3>
       </div>
     </div>
     <div id="dealWarpperwide_e">
-      <div class="dealbox clearfix">
-        <div class="dealad">
-          <a href="/list.html" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad deal">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
-        <div class="dealad deal">
-          <a href="#" target="_blank">
-            <img src="images/pt1.jpg"></a>
-          <h3><a target="_blank" href="#">全场跨店两件8折/5元店铺券</a></h3>
-          <h4><span><a target="_blank" href="#">感恩父母节</a></span><a target="_blank" href="#"></a></h4></div>
+      <div class="dealbox clearfix" id="create_new">
       </div>
     </div>
   </div>
-  <div class="totalPages">
+  <div class="totalPages" id="totalPages" style="display: none;">
     <ul class="pagination">
       <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
       <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -210,7 +147,7 @@
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->
-<script src="scripts/main.js"></script>
+<script src="scripts/list.js"></script>
 <!-- endbuild -->
 </body>
 </html>

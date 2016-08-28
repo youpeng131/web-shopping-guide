@@ -112,7 +112,9 @@ ul, ol, dl, li {
       }
     }
     .category {
-      height: 174px;
+      /*修改*/
+      /*height: 174px;*/
+      margin-bottom: 8px;
       background-color: #fff;
       padding: 10px;
       overflow: hidden;
@@ -295,6 +297,8 @@ ul, ol, dl, li {
     .list_W {
       background-color: #fff;
       margin-top: 5px;
+      /*修改*/
+      margin-bottom: 10px;
       .list_summary {
         height: 36px;
         overflow: hidden;
@@ -343,6 +347,8 @@ ul, ol, dl, li {
           margin-right: 8px;
           img {
             width: 100%;
+            width: 380px;
+            height: 380px;
           }
         }
         .pro_info {

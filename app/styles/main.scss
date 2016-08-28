@@ -275,12 +275,16 @@ body {
     width: 1200px;
     .top_bnr {
       background-color: #f7f7f7;
-      height: 420px;
+      /*修改*/
+      //height: 574px;
+      //height: 420px;
       overflow: hidden;
       width: 960px;
       margin-left: 240px;
       .carousel {
-        height: 419px;
+        /*修改*/
+        //height: 574px;
+        //height: 419px;
         width: 100%;
         z-index: 0;
       }
@@ -293,7 +297,9 @@ body {
         .sec_attr {
           background-color: #fff;
           border: 1px solid #e6e6e6;
-          height: 574px;
+          /*修改*/
+          height: 421px;
+          /*height: 574px;*/
           width: 240px;
           .list {
             position: relative;
@@ -313,7 +319,8 @@ body {
                 }
               }
               .listP {
-                height: 77px;
+                /*修改*/
+                /*height: 77px;*/
                 line-height: 24px;
                 white-space: nowrap;
                 overflow: hidden;
@@ -365,7 +372,10 @@ body {
               color: #999;
               position: absolute;
               right: -5px;
-              top: 48px;
+              /*修改*/
+              /*top: 48px;*/
+              top: 50%;
+              margin-top: -10px;
             }
           }
           .open {
@@ -746,7 +756,8 @@ body {
           height: 347px;
           width: 285px;
           padding: 0;
-          margin: 0 20px 15px 0;
+          /*修改*/
+          margin: 0 15px 15px 0;
           display: inline;
           text-align: left;
           border: 1px solid transparent;
@@ -761,15 +772,18 @@ body {
             background-color: #fff;
             overflow: hidden;
             a {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              display: block;
               color: #999;
             }
           }
           h4 {
             width: 286px;
-            padding-left: 12px;
             top: 1px;
             height: 30px;
-            padding: 0 12px;
+            padding: 5px 12px;
             overflow: hidden;
             text-align: right;
             line-height: 36px;
@@ -783,6 +797,7 @@ body {
               margin-top: 4px;
               display: inline-block;
               a {
+                /*修改*/
                 display: inline-block;
                 width: auto;
                 height: 31px;

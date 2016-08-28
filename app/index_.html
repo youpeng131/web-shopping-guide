@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>web shopping guide</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="main-page">
+  <div class="header">
+    <div class="inner">
+      <a href="#" class="banner-logo">
+        <img src="images/mls-logo.png" alt=""/>
+      </a>
+    </div>
+    <div class="search clearfix">
+      <div class="search-tab">
+        <span class="active">宝贝</span>
+      </div>
+      <div class="search-box">
+        <input type="text" class="search-txt" id="search_text" placeholder="请输入宝贝名"/>
+        <span class="search-btn" onclick="search()"></span>
+      </div>
+    </div>
+  </div>
+  <div id="nav">
+    <div id="com-nav">
+      <div id="def-nav">
+        <div class="inner">
+          <ul>
+            <li><a href="/" class="active">首页</a></li>
+            <li><a href="/qg.html" class="">抢购</a></li>
+            <li><a href="/rx.html" class="">热销</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top_wrap clearfix">
+    <div class="top_box">
+      <div class="attr_box">
+        <ul class="sec_attr" id='create_type'>
+        </ul>
+      </div>
+    </div>
+    <div class="top_bnr" id='create_ad'>
+      
+    </div>
+  </div>
+  <div class="flashSale_wrap" id="show_create_ac" style="display: none;">
+    <div id="flashSale" class="area">
+      <div class="hdXsq">
+        <div class="tit">
+          <span>限量抢购</span>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="flashSaleDeals">
+            <ul>
+              <li id='create_ac'>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hotSaleIndex" class="area hot_sale" style="display: none;">
+    <div class="hot_infor">
+      <span>热销推荐</span>
+    </div>
+    <div class="hot_ads" id="hotAds">
+      <ul id="create_hot">
+       
+      </ul>
+    </div>
+  </div>
+  <div class="area index_deal" id="today_deals" style="display: none;">
+    <div class="deals_tit">
+      <div class="con">
+        <!-- <div class="sort">
+          <span>排序</span>
+          <a href="#" class=""><span>最新</span></a>
+          <a href="#" class="on"><span>最热</span></a>
+        </div>
+        <div class="sort sex_version">
+          <a href="#" class="on moren"><em>默认</em></a><b>|</b>
+          <a href="#" class=""><em>男</em></a><b>|</b>
+          <a href="#" class=""><em>女</em></a><b>|</b>
+          <a href="#" class=""><em>辣妈</em></a>
+        </div> -->
+        <h3>
+          <a class="tonew to2" target="_blank" href="#">最近上架<!-- <em></em><b>8891款 <span></span></b> --></a>
+        </h3>
+      </div>
+    </div>
+    <div id="dealWarpperwide_e">
+      <div class="dealbox clearfix" id="create_new">
+      </div>
+    </div>
+  </div>
+  <div class="totalPages" id="totalPages" style="display: none;">
+    <ul class="pagination">
+      
+    </ul>
+  </div>
+  <div class="foot-con">
+    <div class="area footer">
+      <a rel="nofollow" target="_blank" href="#" style="display:inline; width:auto;color:#999">京ICP证120075号&nbsp;</a> 京ICP备10051110号-5&nbsp;
+      <a rel="nofollow" target="_blank" href="#" style="display:inline; width:auto;color:#999">京公网安备11010502025623&nbsp;</a> 营业执照110105013673175&nbsp; 食品流通许可证SP1101051510352397 <br>出版物经营许可证&nbsp;新出发京零字第朝160018号&nbsp;&nbsp;Copyright©2011-2015 版权所有 ZHE800.COM
+      <br>
+    </div>
+  </div>
+</div>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function (b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+      function () {
+        (b[l].q = b[l].q || []).push(arguments)
+      });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = 'https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/plugins.js -->
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

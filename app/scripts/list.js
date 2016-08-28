@@ -1,0 +1,218 @@
+var api = 'http://localhost';
+var http = 'http://'
+var https = 'https://'
+var set_num_small = 10;
+var set_num = 20;
+var shop_type = GetRequest().type;
+
+$(function(){
+
+	get_type();
+	get_ad(2);
+	get_new(set_num, 1, 'updateTime', 'desc');
+
+})
+
+//获取url参数
+function GetRequest() {
+  
+  var url = location.search; //获取url中"?"符后的字串
+   var theRequest = new Object();
+   if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+      }
+   }
+   return theRequest;
+}
+
+//获取类型
+function get_type(){
+
+	$.getJSON(api + "/client_type/" + shop_type + "?callback=?",function(data){ 
+		
+		$('#show_type').text(data.data[0].name);
+
+	})
+}
+
+
+//获取广告图片
+function get_ad(addr) {
+
+	$.getJSON(api + "/client_ab?callback=?",{'filters': { 'type': 0, 'addr': addr }},function(data){ 
+	    create_ad(data.data);
+	})
+
+}
+
+//生成广告
+function create_ad(json){
+
+	var li = '';
+	var div = '';
+	var html = '';
+
+	$.each(json, function(index, item){
+		// images/banner1.jpg
+		if(index == 0){
+			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" class="active" style="margin-right: 3px"></li>';
+			div += '<div class="item active"><img src="' + api + item.photo + '" alt="" style="height: 420px;"></div>';
+		}
+		else {
+			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" style="margin-right: 3px"></li>'
+			div += '<div class="item"><img src="' + api + item.photo + '" alt="" style="height: 420px;"></div>';
+		}
+	});
+
+	if(json.length){
+
+		html = '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">\
+	        <ol class="carousel-indicators">\
+	        '+li+'\
+	        </ol>\
+	        <div class="carousel-inner" role="listbox">\
+	        '+div+'\
+	        </div>\
+	        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">\
+	          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>\
+	          <span class="sr-only">Previous</span>\
+	        </a>\
+	        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">\
+	          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>\
+	          <span class="sr-only">Next</span>\
+	        </a>\
+	      </div>'
+	}
+
+
+
+	$('#create_ad').append(html);
+
+}
+
+
+
+//获取最新
+function get_new(num, page, order, sort){
+
+	var json = {};
+	json.status = 3;
+	json.type = shop_type;
+
+	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: num, page: page,order: order, sort: sort },function(data){ 
+	    create_new(data, num, page);
+	})
+
+}
+
+//生成最新
+function create_new(json, num, page,count){
+
+	var div = '';
+
+	$.each(json.data, function(index, item){
+			div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="images/pt1.jpg"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" href="#"></a></h4></div>';
+	});
+
+	if(json.data.length>0) {
+
+		countPage = Math.ceil(json.count/num);
+
+		var li = '';
+
+		if (page == 1) {
+			li += '<li class="disabled"><a href="javascript:prev(' + page + ')" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>'
+		}
+		else {
+			li += '<li class=""><a href="javascript:prev(' + page + ')" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>'	
+		}
+
+		for (var i = 1; i <= countPage; i++) {
+
+			if(page == i){
+				li += '<li class="active">';
+			}
+			else {
+				li += '<li class="">';
+			}
+
+			li += '<a href="javascript:to_num(' + i + ')">' + i + ' <span class="sr-only">(current)</span></a></li>'
+		}
+
+		if (page ==countPage) {
+			li += '<li class="disabled"><a href="javascript:next(' + page + ',' + countPage + ')" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+		}
+		else {
+			li += '<li class=""><a href="javascript:next(' + page + ',' + countPage + ')" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
+		}
+
+		$('#create_new *').remove();
+		$('#totalPages .pagination *').remove();	
+
+		$('#create_new').append(div);
+		$('#totalPages .pagination').append(li);
+
+		$('#today_deals').show();
+		$('#totalPages').show();
+	}
+	else {
+		$('#today_deals').hide();
+		$('#totalPages').hide();
+	}
+
+}
+
+//跳到第几页
+function to_num(page){
+	get_new(set_num, page, 'updateTime', 'desc');
+}
+
+//上一页
+function prev(page){
+	if(page > 1) {
+		get_new(set_num, page-1, 'updateTime', 'desc');
+	}
+}
+
+//下一页
+function next(page,count){
+	if (count > page){
+		get_new(set_num, page+1, 'updateTime', 'desc');
+	}
+}
+
+//更新阅读数
+function add_read(id){
+	$.getJSON(api + "/client_read/" + id + "?callback=?",function(data){ 
+	    
+	})
+}
+
+
+//搜索
+function search(){
+	var val = $('#search_text').val();
+	window.location.href="/search.html?name="+val; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

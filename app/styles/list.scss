@@ -269,7 +269,8 @@ body {
     }
   }
   .list-banner {
-    height: 300px;
+    /*修改*/
+    /*height: 300px;*/
     width: 100%;
     background-color: #f69;
   }
@@ -391,7 +392,8 @@ body {
           height: 347px;
           width: 285px;
           padding: 0;
-          margin: 0 20px 15px 0;
+          /*修改*/
+          margin: 0 15px 15px 0;
           display: inline;
           text-align: left;
           border: 1px solid transparent;
