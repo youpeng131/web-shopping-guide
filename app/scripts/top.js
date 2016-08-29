@@ -1,10 +1,3 @@
-var api = 'http://localhost';
-var http = 'http://'
-var https = 'https://'
-var set_num_small = 10;
-var set_num = 20;
-
-
 $(function(){
 
 	get_type();

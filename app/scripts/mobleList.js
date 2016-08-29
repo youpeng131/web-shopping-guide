@@ -1,7 +1,3 @@
-var api = 'http://localhost';
-var http = 'http://'
-var https = 'https://'
-var set_num = 10;
 var shop_type = GetRequest().type;
 var page = 1;
 var countPage = 0;
@@ -103,8 +99,8 @@ function get_new( order, sort){
 	var json = {};
 	json.status = 3;
 
-	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: set_num, page: page,order: order, sort: sort },function(data){ 
-		countPage = Math.ceil(data.count/set_num);
+	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: set_num_small, page: page,order: order, sort: sort },function(data){ 
+		countPage = Math.ceil(data.count/set_num_small);
 	    create_new(data.data);
 	})
 
