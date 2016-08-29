@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>商户录入</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/merchandiseMoble.css">
+  <link rel="stylesheet" href="styles/global.css"/>
+  <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="layout">
+  <span>商户录入</span>
+  <form method="post">
+    <ul>
+      <p id="err_msg"></p>
+      <li>
+        <i class="un"><img src="image/user_name.png"></i>
+        <input class="username" type="text" placeholder="旺旺id"/>
+      </li>
+      <li>
+        <i class="yz"><img src="image/msg.png"></i>
+        <input class="yzm" type="number" placeholder="手机号码"/>
+      <li>
+      <li>
+        <i class="un"><img src="image/user_name.png"></i>
+        <input class="username" type="text" placeholder="店铺认证信息"/>
+      </li>
+      <li>
+        <i class="un"><img src="image/user_name.png"></i>
+        <input class="username" type="text" placeholder="身份认证信息"/>
+      </li>
+      <li>
+        <i class="un"><img src="image/user_name.png"></i>
+        <input class="username" type="text" placeholder="预设保证金账号"/>
+      </li>
+      <li>
+        <h4>保证金截图</h4>
+        <input type="file" id="exampleInputFile" placeholder="保证金截图">
+      </li>
+    </ul>
+    <div class="reg_btn">
+      <button class="submit" type="submit">录入</button>
+    </div>
+  </form>
+</div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/loginMoble.js"></script>
+<!-- endbuild -->
+</body>
+</html>

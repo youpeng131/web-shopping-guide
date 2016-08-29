@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/loginMoble.css">
+  <link rel="stylesheet" href="styles/global.css"/>
+  <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="layout">
+  <span>注册</span>
+  <form method="post">
+    <ul>
+      <p id="err_msg"></p>
+      <li>
+        <i class="un"><img src="image/user_name.png"></i>
+        <input class="username" type="text" placeholder="请输入用户名"/>
+      </li>
+      <li>
+        <i class="yz"><img src="image/msg.png"></i>
+        <input class="yzm" type="text" placeholder="请输入手机验证码"/>
+        <input type="button" id="send" value="获取验证码"/></li>
+      <li>
+        <i class="pw">
+          <img src="image/pwd.png">
+        </i>
+        <input class="pwd" type="password" placeholder="请输入密码"/>
+      </li>
+      <li><i class="pw2"><img src="image/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码"/></li>
+      <div class="queren"><input class="fx" type="checkbox" checked="checked"/>
+        <p>我已阅读并同意《用户协议》</p></div>
+    </ul>
+    <div class="reg_btn">
+      <button class="submit" type="submit">注册</button>
+      <a href="landedMoble.html">
+        <div class="reg-login"><p>已有帐号，立即登陆</p></div>
+      </a>
+    </div>
+  </form>
+</div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/loginMoble.js"></script>
+<!-- endbuild -->
+</body>
+</html>
