@@ -4,13 +4,14 @@ var http = 'http://';
 var https = 'https://';
 var set_num_small = 10;
 var set_num = 20;
-
+checkCookie()
 //设置cookie
 function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+    // var d = new Date();
+    // d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    // var expires = "expires="+d.toUTCString();
+    // document.cookie = cname + "=" + cvalue + "; " + expires;
+    document.cookie = cname + "=" + cvalue + "; ";
 }
 
 //获取cookie
@@ -28,16 +29,10 @@ function getCookie(cname) {
 function clearCookie(name) {  
     setCookie(name, "", -1);  
 }  
+
 function checkCookie() {
     var user = getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-        user = prompt("Please enter your name:", "");
-        if (user != "" && user != null) {
-            setCookie("username", user, 365);
-        }
-    }
+     setCookie("username", 'a', 365);
 }
 
 function getCookie(name){
@@ -48,15 +43,32 @@ function getCookie(name){
 	return null;
 }
 
+function getFormJson(form) {
+	var o = {};
+	var a = $(form).serializeArray();
+	$.each(a, function () {
+		if (o[this.name] !== undefined) {
+			if (!o[this.name].push) {
+				o[this.name] = [o[this.name]];
+			}
+				o[this.name].push(this.value || '');
+		} else {
+			o[this.name] = this.value || '';
+		}
+	});
+	return o;
+}
+
 function login(){
 
-	var data = $('#login').serialize();
+	var data = getFormJson('#login');
 
 	$.ajax({
          type: "POST",
-         url: api + "/login",
+         url: api + "/login?"+$('#login').serialize(),
          data: data,
          dataType: "json",
+         jsonp:'callback',
 	     success: function(data){
 
          },
@@ -65,6 +77,11 @@ function login(){
          }
      });
 
+
+	function callback( data ){
+    console.log( data );
+}
+
 	return false;
 
 }
@@ -72,12 +89,12 @@ function login(){
 
 function userCreate(){
 
-	var data = $('#userCreate').serialize() 
+	var data = getFormJson('#userCreate');
 
 	$.ajax({
          type: "POST",
          url: api + "/create_user",
-         data: data,
+         data: '{a:2,b:3}',
          dataType: "jsonp",
          jsonp:'callback',
 	     success: function(data){
