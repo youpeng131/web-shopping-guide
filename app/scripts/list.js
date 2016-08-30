@@ -2,9 +2,9 @@ var shop_type = GetRequest().type;
 
 $(function(){
 
-	// get_type();
-	// get_ad(2);
-	// get_new(set_num, 1, 'updateTime', 'desc');
+	get_type();
+	get_ad(2);
+	get_new(set_num, 1, 'updateTime', 'desc');
 
 })
 
