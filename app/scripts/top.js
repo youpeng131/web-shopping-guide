@@ -1,5 +1,7 @@
 $(function(){
 
+	checkCookie();
+	
 	get_type();
 	get_ad(1);
 	get_ac(set_num_small, 1);
@@ -256,21 +258,6 @@ function create_new(json, num, page){
 
 
 }
-
-
-//更新阅读数
-function add_read(id){
-	$.getJSON(api + "/client_read/" + id + "?callback=?",function(data){ 
-	    
-	})
-}
-
-//搜索
-function search(){
-	var val = $('#search_text').val();
-	window.location.href="/search.html?name="+val; 
-}
-
 
 
 

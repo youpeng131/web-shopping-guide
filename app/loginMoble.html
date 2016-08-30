@@ -27,26 +27,30 @@
 <![endif]-->
 <div id="layout">
   <span>注册</span>
-  <form method="post">
+  <form method="post" action="" id="userCreate" onsubmit="return userCreate(1)">
     <ul>
       <p id="err_msg"></p>
       <li>
         <i class="un"><img src="image/user_name.png"></i>
-        <input class="username" type="text" placeholder="请输入用户名"/>
+        <input class="username" type="text" name="name" placeholder="请输入用户名"/>
       </li>
-      <li>
+      <!-- <li>
         <i class="yz"><img src="image/msg.png"></i>
         <input class="yzm" type="text" placeholder="请输入手机验证码"/>
-        <input type="button" id="send" value="获取验证码"/></li>
+        <input type="button" id="send" value="获取验证码"/></li> -->
       <li>
         <i class="pw">
           <img src="image/pwd.png">
         </i>
-        <input class="pwd" type="password" placeholder="请输入密码"/>
+        <input class="pwd" type="password" name="pwd" placeholder="请输入密码"/>
       </li>
-      <li><i class="pw2"><img src="image/pwd.png"></i><input class="pwd2" type="password" placeholder="请输入确认密码"/></li>
-      <div class="queren"><input class="fx" type="checkbox" checked="checked"/>
-        <p>我已阅读并同意《用户协议》</p></div>
+      <li><i class="pw2"><img src="image/pwd.png"></i><input class="pwd2" type="password" name="repassword" placeholder="请输入确认密码"/></li>
+      <li>
+        <i class="un"><img src="image/msg.png"></i>
+        <input class="username" type="text" name="phone" placeholder="请输入手机号"/>
+      </li>
+      <!-- <div class="queren"><input class="fx" type="checkbox" checked="checked"/>
+        <p>我已阅读并同意《用户协议》</p></div> -->
     </ul>
     <div class="reg_btn">
       <button class="submit" type="submit">注册</button>

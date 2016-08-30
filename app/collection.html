@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>web shopping list</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/list.css">
+  <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="list">
+  <div class="header">
+    <div class="inner">
+      <a href="#" class="banner-logo">
+        <img src="images/mls-logo.png" alt=""/>
+      </a>
+    </div>
+    <div class="search clearfix">
+      <div class="search-tab">
+        <span class="active">宝贝</span>
+      </div>
+      <div class="search-box">
+        <input type="text" class="search-txt" id="search_text" placeholder="请输入宝贝名"/>
+        <span class="search-btn" onclick="search()"></span>
+      </div>
+     <!--  <div class="hotword">
+        <a href="#" class="red_f" target="_blank">连衣裙</a>
+        <a href="#" target="_blank">拖鞋</a>
+        <a href="#" target="_blank">短裤</a>
+        <a href="#" class="red_f" target="_blank">套装</a>
+        <a href="#" target="_blank">泳衣</a>
+        <a href="#" target="_blank">长裙</a>
+        <a href="#" target="_blank">睡衣</a>
+        <a href="#" class="red_f" target="_blank">凉鞋</a>
+        <a href="#" target="_blank">双肩包</a>
+        <a href="#" target="_blank">帽子</a>
+      </div> -->
+    </div>
+  </div>
+  <div id="nav">
+    <div id="com-nav">
+      <div id="def-nav">
+        <div class="inner">
+          <ul>
+            <li><a href="/" class="">首页</a></li>
+            <li><a href="/qg.html" class="active">收藏夹</a></li>
+            <li><a href="/qg.html" class="">抢购</a></li>
+            <li><a href="/rx.html" class="">热销</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-banner" id='create_ad'></div>
+  <div class="area index_deal" id="today_deals" style="display: none;">
+    <div class="deals_tit">
+      <div class="con">
+        <!-- <div class="sort">
+          <span>排序</span>
+          <a href="#" class=""><span>最新</span></a>
+          <a href="#" class="on"><span>最热</span></a>
+        </div>
+        <div class="sort sex_version">
+          <a href="#" class="on moren"><em>默认</em></a><b>|</b>
+          <a href="#" class=""><em>男</em></a><b>|</b>
+          <a href="#" class=""><em>女</em></a><b>|</b>
+          <a href="#" class=""><em>辣妈</em></a>
+        </div> -->
+        <h3>
+          <a class="tonew to2" target="_blank" href="#">收藏夹<!-- <em></em><b>8891款<span></span></b> --></a>
+        </h3>
+      </div>
+    </div>
+    <div id="dealWarpperwide_e">
+      <div class="dealbox clearfix" id="create_new">
+      </div>
+    </div>
+  </div>
+  <div class="totalPages" id="totalPages" style="display: none;">
+    <ul class="pagination">
+      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+      <li><a href="#">2<span class="sr-only">(current)</span></a></li>
+      <li><a href="#">3<span class="sr-only">(current)</span></a></li>
+      <li><a href="#">4<span class="sr-only">(current)</span></a></li>
+      <li><a href="#">5<span class="sr-only">(current)</span></a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">下一页</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function (b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+      function () {
+        (b[l].q = b[l].q || []).push(arguments)
+      });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = 'https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/plugins.js -->
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script type="text/javascript" src="scripts/public.js"></script>
+<script src="scripts/collection.js"></script>
+<!-- endbuild -->
+</body>
+</html>

@@ -1,10 +1,13 @@
 $(function(){
 
+	checkCookieMoble();
+
 	get_type();
 	get_ad(0);
 	get_ac(4, 1);
 	get_hot(6, 1, 'read_num', 'desc');
 	get_new(10, 1, 'updateTime', 'desc');
+
 
 })
 
@@ -12,31 +15,43 @@ $(function(){
 //获取类型
 function get_type(){
 
-	$.getJSON(api + "/client_type?callback=?",function(data){ 
-		
-		var json = [];
+	 $.ajax({
+         type: "get",
+         url: api + "/client_type",
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
+         success: function(data){
+         	var json = [];
 
-		var count = 0;
+			var count = 0;
 
-		$.each(data.data, function(index, item){
+			$.each(data.data, function(index, item){
 
-			if( index > count || index === 0){
-				var obj = item;
+				if( index > count || index === 0){
+					var obj = item;
 
-				if (item.children) {
-					var map = type_count(data.data, index+1, item.children);
-					obj.list = map;
-					count = index + item.children;
+					if (item.children) {
+						var map = type_count(data.data, index+1, item.children);
+						obj.list = map;
+						count = index + item.children;
+					}
+					json.push(obj);	
 				}
-				json.push(obj);	
-			}
 
-	    });
+		    });
 
-	    create_type(json);
+		    create_type(json);
+         },
+         error: function(data){
+            
+            data = eval('('+data.responseText+')');
 
+            alert(data.msg);
+         }
+     });
 
-	})
 }
 
 //生成类型
@@ -96,9 +111,27 @@ function type_count(array, min_index ,count){
 //获取广告图片
 function get_ad(addr) {
 
-	$.getJSON(api + "/client_ab?callback=?",{'filters': { 'type': 0, 'addr': addr }},function(data){ 
-	    create_ad(data.data);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_ab",
+         data: {'filters': { 'type': 0, 'addr': addr }},
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_ad(data.data);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
 
 }
 
@@ -151,9 +184,27 @@ function create_ad(json){
 //获取抢购列表
 function get_ac(num, page){
 
-	$.getJSON(api + "/client_ac?callback=?",{ filters: {"type":0,"status":1}, num: num, page: page },function(data){ 
-	    create_ac(data.data);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_ac",
+         data: { filters: {"type":0,"status":1}, num: num, page: page },
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_ac(data.data);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
 
 }
 
@@ -189,9 +240,27 @@ function get_hot(num, page, order, sort){
 	var json = {};
 	json.status = 3;
 
-	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: num, page: page,order: order, sort: sort },function(data){ 
-	    create_hot(data.data);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_hot_new",
+         data: { filters: json, num: num, page: page,order: order, sort: sort },
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_hot(data.data);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
 
 }
 
@@ -220,9 +289,27 @@ function get_new(num, page, order, sort){
 	var json = {};
 	json.status = 3;
 
-	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: num, page: page,order: order, sort: sort },function(data){ 
-	    create_new(data.data);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_hot_new",
+         data: { filters: json, num: num, page: page,order: order, sort: sort },
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_new(data.data);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
 
 }
 
@@ -243,20 +330,6 @@ function create_new(json){
 	}
 
 }
-
-//更新阅读数
-function add_read(id){
-	$.getJSON(api + "/client_read/" + id + "?callback=?",function(data){ 
-	    
-	})
-}
-
-//搜索
-function search(){
-	var val = $('#search_text').val();
-	window.location.href="/search.html?name="+val; 
-}
-
 
 
 

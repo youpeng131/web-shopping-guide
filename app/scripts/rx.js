@@ -9,9 +9,27 @@ $(function(){
 //获取广告图片
 function get_ad(addr) {
 
-	$.getJSON(api + "/client_ab?callback=?",{'filters': { 'type': 0, 'addr': addr }},function(data){ 
-	    create_ad(data.data);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_ab",
+         data: {'filters': { 'type': 0, 'addr': addr }},
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_ad(data.data);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
 
 }
 
@@ -66,9 +84,26 @@ function get_new(num, page, order, sort){
 	var json = {};
 	json.status = 3;
 
-	$.getJSON(api + "/client_hot_new?callback=?",{ filters: json, num: num, page: page,order: order, sort: sort },function(data){ 
-	    create_new(data, num, page);
-	})
+	$.ajax({
+         type: "get",
+         url: api + "/client_hot_new",
+         data: { filters: json, num: num, page: page,order: order, sort: sort },
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+
+	     	create_new(data, num, page);
+
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
 
 }
 
@@ -78,7 +113,7 @@ function create_new(json, num, page,count){
 	var div = '';
 
 	$.each(json.data, function(index, item){
-			div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="images/pt1.jpg"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" href="#"></a></h4></div>';
+		div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="'+api+item.photo+'"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" href="#"></a></h4></div>';
 	});
 
 	if(json.data.length>0) {
@@ -146,21 +181,6 @@ function next(page,count){
 	if (count > page){
 		get_new(set_num, page+1, 'updateTime', 'desc');
 	}
-}
-
-
-//更新阅读数
-function add_read(id){
-	$.getJSON(api + "/client_read/" + id + "?callback=?",function(data){ 
-	    
-	})
-}
-
-
-//搜索
-function search(){
-	var val = $('#search_text').val();
-	window.location.href="/search.html?name="+val; 
 }
 
 

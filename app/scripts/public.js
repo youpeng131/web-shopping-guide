@@ -4,7 +4,7 @@ var http = 'http://';
 var https = 'https://';
 var set_num_small = 10;
 var set_num = 20;
-checkCookie()
+
 //设置cookie
 function setCookie(cname, cvalue, exdays) {
     // var d = new Date();
@@ -31,8 +31,20 @@ function clearCookie(name) {
 }  
 
 function checkCookie() {
-    var user = getCookie("username");
-     setCookie("username", 'a', 365);
+    var user = getCookie("nick_name");
+    if(user){
+        $('.topz .line2').html('<a href="/landedMoble.html">' + user + '</a>');
+        $('.topz .line2').show();
+        $('.topz .line3').hide();
+        $('.topz .line4').hide();
+    }
+}
+
+function checkCookieMoble(){
+	var user = getCookie("nick_name");
+    if(user){
+    	$('.login.in').hide();
+    }
 }
 
 function getCookie(name){
@@ -59,52 +71,129 @@ function getFormJson(form) {
 	return o;
 }
 
-function login(){
-
-	var data = getFormJson('#login');
+//登录
+function login(type){
 
 	$.ajax({
          type: "POST",
          url: api + "/login?"+$('#login').serialize(),
-         data: data,
          dataType: "json",
-         jsonp:'callback',
+	     xhrFields: {
+	         withCredentials: true
+	     },
 	     success: function(data){
-
+            if(type){
+	     	 window.location.href="/moble.html";
+            }
+            else{
+             window.location.href="/";   
+            }
          },
          error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
 
+         	alert(data.msg);
          }
      });
 
+	
 
-	function callback( data ){
-    console.log( data );
-}
 
 	return false;
 
 }
 
-
-function userCreate(){
+//注册
+function userCreate(type){
 
 	var data = getFormJson('#userCreate');
 
+    if(data.pwd != data.repassword){
+        alert('密码不一致');
+        return false;
+    }
+
 	$.ajax({
          type: "POST",
-         url: api + "/create_user",
-         data: '{a:2,b:3}',
-         dataType: "jsonp",
-         jsonp:'callback',
+         url: api + "/user_create?"+$('#userCreate').serialize(),
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
 	     success: function(data){
-	     	
+	     	if(type){
+             window.location.href="/landedMoble.html";
+            }
+            else{
+             window.location.href="/landed.html";   
+            }
          },
          error: function(data){
+            data = eval('('+data.responseText+')');
 
+            alert(data.msg);
          }
 
 
      });
 
+    return false;
+
+}
+
+//收藏
+function collection_create(id){
+
+    $.ajax({
+         type: "POST",
+         url: api + "/clientUser?commodity_id=" + id,
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
+         success: function(data){
+
+         },
+         error: function(data){
+            
+            data = eval('('+data.responseText+')');
+
+            alert(data.msg);
+         }
+     });
+
+}
+
+
+//更新阅读数
+function add_read(id){
+
+    $.ajax({
+         type: "get",
+         url: api + "/client_read/" + id,
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
+         success: function(data){
+
+         },
+         error: function(data){
+            
+            data = eval('('+data.responseText+')');
+
+            alert(data.msg);
+         }
+     });
+
+}
+
+//搜索
+function search(){
+    var val = $('#search_text').val();
+
+    if(val=='请输入宝贝名') val=''
+
+    window.location.href="/search.html?name="+val; 
 }

@@ -1,75 +1,18 @@
-var shop_type = GetRequest().type;
-
 $(function(){
 
-	// get_type();
 	// get_ad(2);
-	// get_new(set_num, 1, 'updateTime', 'desc');
+	get_collection(set_num, 1);
 
 })
 
-//获取url参数
-function GetRequest() {
-  
-  var url = location.search; //获取url中"?"符后的字串
-   var theRequest = new Object();
-   if (url.indexOf("?") != -1) {
-      var str = url.substr(1);
-      strs = str.split("&");
-      for(var i = 0; i < strs.length; i ++) {
-         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
-      }
-   }
-   return theRequest;
-}
-
-//获取类型
-function get_type(){
-
-	$.ajax({
-         type: "get",
-         url: api + "/client_type/" + shop_type,
-         dataType: "json",
-	     xhrFields: {
-	         withCredentials: true
-	     },
-	     success: function(data){
-	     	$('#show_type').text(data.data[0].name);
-         },
-         error: function(data){
-         	
-         	data = eval('('+data.responseText+')');
-
-         	alert(data.msg);
-         }
-     });
-
-}
 
 
 //获取广告图片
 function get_ad(addr) {
 
-	$.ajax({
-         type: "get",
-         url: api + "/client_ab",
-         data: {'filters': { 'type': 0, 'addr': addr }},
-         dataType: "json",
-	     xhrFields: {
-	         withCredentials: true
-	     },
-	     success: function(data){
-	     	create_ad(data.data);
-         },
-         error: function(data){
-         	
-         	data = eval('('+data.responseText+')');
-
-         	alert(data.msg);
-         }
-     });
-
-
+	$.getJSON(api + "/client_ab?callback=?",{'filters': { 'type': 0, 'addr': addr }},function(data){ 
+	    create_ad(data.data);
+	})
 
 }
 
@@ -120,18 +63,14 @@ function create_ad(json){
 
 
 
-//获取最新
-function get_new(num, page, order, sort){
-
-	var json = {};
-	json.status = 3;
-	json.type = shop_type;
+//获取收藏夹
+function get_collection(num, page){
 
 
 	$.ajax({
          type: "get",
-         url: api + "/client_hot_new",
-         data: { filters: json, num: num, page: page,order: order, sort: sort },
+         url: api + "/clientUser",
+         data: { filters: {}, num: num, page: page },
          dataType: "json",
 	     xhrFields: {
 	         withCredentials: true
@@ -149,13 +88,13 @@ function get_new(num, page, order, sort){
 
 }
 
-//生成最新
+//生成收藏
 function create_new(json, num, page,count){
 
 	var div = '';
 
 	$.each(json.data, function(index, item){
-			div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="'+api+item.photo+'"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" href="#"></a></h4></div>';
+		div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="'+api+item.photo+'"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" id="coll_' + item.id + '" href="javascript:collection_del(' + item.id + ')" onclick=></a></h4></div>';
 	});
 
 	if(json.data.length>0) {
@@ -224,6 +163,31 @@ function next(page,count){
 		get_new(set_num, page+1, 'updateTime', 'desc');
 	}
 }
+
+
+
+//删除收藏
+function collection_del(id){
+	$.ajax({
+         type: "post",
+         url: api + "/clientUser/"+id,
+         dataType: "json",
+	     xhrFields: {
+	         withCredentials: true
+	     },
+	     success: function(data){
+	     	$('#coll_'+id).parent().parent().remove();
+         },
+         error: function(data){
+         	
+         	data = eval('('+data.responseText+')');
+
+         	alert(data.msg);
+         }
+     });
+
+}
+
 
 
 
