@@ -225,3 +225,80 @@ function search(){
 
     window.location.href="/search.html?name="+val; 
 }
+
+
+
+$('.uploadImg').on('change', function () {
+    var type = $(this).attr('upload-type');
+    var file = $(this).get(0).files[0];
+    var start = file.name.lastIndexOf('.') + 1;
+    var suffix = file.name.substr(start);
+    if (suffix !== 'jpeg' && suffix !== 'png' && suffix !== 'jpg') {
+        alert('请上传图片文件！格式限制为 jpg/png/jpeg');
+        return;
+    }
+
+
+// $.ajax({
+//      type: "post",
+//      url: api + "/upload?file="+file,
+//      dataType: "json",
+//      xhrFields: {
+//          withCredentials: true
+//      },
+//      success: function(data){
+//         console.log(data)
+//      },
+//      error: function(data){
+        
+//         data = eval('('+data.responseText+')');
+
+//         alert(data.msg);
+//      }
+//  });
+
+})
+
+
+
+function create_merchant(){
+
+
+    $.ajax({
+         type: "POST",
+         url: api + "/create_merchant?"+$('#create_merchant').serialize(),
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
+         success: function(data){
+
+         },
+         error: function(data){
+            data = eval('('+data.responseText+')');
+
+            alert(data.msg);
+         }
+
+
+     });
+
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
