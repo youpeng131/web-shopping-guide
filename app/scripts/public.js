@@ -30,10 +30,25 @@ function clearCookie(name) {
     setCookie(name, "", -1);  
 }  
 
+function clearAllCookie(){ 
+    var keys=document.cookie.match(/[^ =;]+(?=\=)/g); 
+    if (keys) { 
+        for (var i = keys.length; i--;) 
+            document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString() 
+    }
+
+    $('.topz .line2').css('width','200px');
+    $('.topz .line2').html('');
+    $('.topz .line2').hide();
+    $('.topz .line3').show();
+    $('.topz .line4').show();
+} 
+
 function checkCookie() {
     var user = getCookie("nick_name");
     if(user){
-        $('.topz .line2').html('<a href="/landedMoble.html">' + user + '</a>');
+        $('.topz .line2').css('width','200px');
+        $('.topz .line2').html('<a href="/landedMoble.html">' + user + '</a><a href="javascript:clearAllCookie()">退出登录</a>');
         $('.topz .line2').show();
         $('.topz .line3').hide();
         $('.topz .line4').hide();
