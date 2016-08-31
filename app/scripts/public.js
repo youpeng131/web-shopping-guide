@@ -5,8 +5,15 @@ var https = 'https://';
 var set_num_small = 10;
 var set_num = 20;
 
+if(getCookie('show_bottomtip')){
+    $(".bottomtip").hide();
+    $(".bottomtip").addClass("bottomtipclose");   
+}
+
 
 $(".bottomtip .close").on("click",function(){
+    setCookie('show_bottomtip',true,100000);
+    $(".bottomtip").hide();
     $(".bottomtip").toggleClass("bottomtipclose");
 });
 
