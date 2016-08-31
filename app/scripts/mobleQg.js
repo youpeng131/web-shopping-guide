@@ -1,12 +1,10 @@
-var shop_type = GetRequest().type;
 var page = 1;
 var countPage = 0;
 
 $(function(){
 
-	get_type();
 	get_ad(2);
-	get_new('updateTime', 'desc');
+	get_new();
 
 })
 
@@ -25,29 +23,6 @@ function GetRequest() {
       }
    }
    return theRequest;
-}
-
-//获取类型
-function get_type(){
-
-	$.ajax({
-         type: "get",
-         url: api + "/client_type/" + shop_type,
-         dataType: "json",
-	     xhrFields: {
-	         withCredentials: true
-	     },
-	     success: function(data){
-	     	$('#show_type').text(data.data[0].name);
-         },
-         error: function(data){
-         	
-         	data = eval('('+data.responseText+')');
-
-         	alert(data.msg);
-         }
-     });
-
 }
 
 //获取广告图片
@@ -127,14 +102,10 @@ function create_ad(json){
 function get_new( order, sort){
 
 
-	var json = {};
-	json.type = shop_type;
-	json.status = 3;
-
 	$.ajax({
          type: "get",
-         url: api + "/client_hot_new",
-         data: { filters: json, num: set_num_small, page: page,order: order, sort: sort },
+         url: api + "/client_ac",
+         data: { filters: {"type":0,"status":1}, num: set_num_small, page: page },
          dataType: "json",
 	     xhrFields: {
 	         withCredentials: true

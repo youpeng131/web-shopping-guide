@@ -57,7 +57,7 @@
          	 $(window).scroll(function(){
 //		获得滚动条滚动上去的距离
 		var t = $(document).scrollTop();
-		     document.title = t;
+		     // document.title = t;
 		if (t>153) {
 //			让menu固定定位，通过添加一个f class值来实现
 			$("#nav").addClass('lalss');
@@ -161,7 +161,7 @@ $(function(){
         $(window).scroll(function(){
 //		获得滚动条滚动上去的距离
 		var t = $(document).scrollTop();
-		     document.title = t;
+		     // document.title = t;
 		if (t>150) {
 //			让menu固定定位，通过添加一个f class值来实现
 			$('#fans .top').show();

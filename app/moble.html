@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>web shopping list</title>
+  <title>什么街</title>
 
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
@@ -17,17 +17,38 @@
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/moble.css">
   <!-- endbuild -->
+  <style>
+    @-webkit-keyframes bottomtipcur{
+        0%   {bottom:-100px;}
+        50% {bottom:20px;}
+        75% {bottom:18px;}
+        100% {bottom:20px;}
+    }
+    @-webkit-keyframes bottomtipclose{
+        0%   {bottom:20px;}
+        100% {bottom:-100px;}
+    }
+  </style>
 </head>
 <body>
+
 <!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
+
+<div class="bottomtip bottomtipcur">
+  <sub style="left:47%;"></sub>
+  <span class="close"></span>
+  <span class="logo"></span>
+  <p>添加到手机屏幕可一键访问!点击下方<i class="ico ico_ios"></i>再点“添加到主屏幕”。</p>
+</div>
+
 <div id="ct">
   <div class="topbar" id="index_topbar">
-    <span class="cate_sou" data-url="/m/category/category"><i>分类搜索</i></span>
-    <h1 class="logo">折800</h1>
-    <span class="user_in" data-url="/m/ucenter/uindex"><i>个人中心</i></span>
+    <!-- <span class="cate_sou" data-url="/m/category/category"><i>搜索</i></span> -->
+    <h1 class="logo">什么街</h1>
+    <!-- <span class="user_in" data-url="/m/ucenter/uindex"><i>个人中心</i></span> -->
   </div>
   <div class="index_w">
     <div class="slide_img" id="create_ad">
@@ -47,14 +68,21 @@
       <dl class="today">
         <!-- <dt class="tit t1">限时抢购</dt> -->
         <!-- <dd class="txt">限时抢购</dd> -->
-        <dd class="txt" style="color: red;font-size: 1.9rem;font-weight: bold;">限时抢购</dd>
-        <dd class="img"><img src="http://z3.tuanimg.com/imagev2/wxyy/552x456.17e1c50005f34729864a1f13731fd06f.png"
-                             width="108" height="108" alt=""><span></span></dd>
+        <a href="/mobleQg.html" style="text-decoration: none;">
+          <dd class="txt" style="color: red;font-size: 1.9rem;font-weight: bold;">限时抢购</dd>
+          <dd class="img">
+            <img src="http://z3.tuanimg.com/imagev2/wxyy/552x456.17e1c50005f34729864a1f13731fd06f.png"
+                               width="108" height="108" alt=""/>
+            <span></span>
+           </dd>
+        </a>
       </dl>
     </div>
     <div class="list_W show_create_hot">
       <div class="list_summary">
-        <span class="fl">热销推荐</span><span class="fr btn_login"></span>
+        <a href="/mobleRx.html" style="text-decoration: none;">
+          <span class="fl">热销推荐</span><span class="fr btn_login">更多></span>
+        </a>
       </div>
       <div class="list">
         <ul id="create_hot">
@@ -103,6 +131,9 @@
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
 <!-- endbower -->
 <!-- endbuild -->
 

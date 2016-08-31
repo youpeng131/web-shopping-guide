@@ -1,13 +1,14 @@
-var shop_name = GetRequest().name;
-
-$('#show_type').text('搜索');
+var page = 1;
+var countPage = 0;
 
 $(function(){
 
 	get_ad(2);
-	get_new(set_num, 1, 'updateTime', 'desc');
+	get_new('read_num', 'desc');
 
 })
+
+
 
 //获取url参数
 function GetRequest() {
@@ -25,10 +26,8 @@ function GetRequest() {
 }
 
 
-
 //获取广告图片
 function get_ad(addr) {
-
 
 	$.ajax({
          type: "get",
@@ -51,7 +50,6 @@ function get_ad(addr) {
          }
      });
 
-
 }
 
 //生成广告
@@ -65,11 +63,11 @@ function create_ad(json){
 		// images/banner1.jpg
 		if(index == 0){
 			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" class="active" style="margin-right: 3px"></li>';
-			div += '<div class="item active"><img src="' + api + item.photo + '" alt="" style="height: 420px;width: 100%;"></div>';
+			div += '<div class="item active"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></div>';
 		}
 		else {
 			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" style="margin-right: 3px"></li>'
-			div += '<div class="item"><img src="' + api + item.photo + '" alt="" style="height: 420px;width: 100%;"></div>';
+			div += '<div class="item"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></div>';
 		}
 	});
 
@@ -102,8 +100,7 @@ function create_ad(json){
 
 
 //获取最新
-function get_new(num, page, order, sort){
-
+function get_new( order, sort){
 
 	var json = {};
 	json.status = 3;
@@ -111,14 +108,15 @@ function get_new(num, page, order, sort){
 	$.ajax({
          type: "get",
          url: api + "/client_hot_new",
-         data: { filters: json, num: num, page: page,order: order, sort: sort, keywords: shop_name },
+         data: { filters: json, num: set_num_small, page: page,order: order, sort: sort },
          dataType: "json",
 	     xhrFields: {
 	         withCredentials: true
 	     },
 	     success: function(data){
 
-	     	create_new(data, num, page);
+	     	countPage = Math.ceil(data.count/set_num_small);
+	    	create_new(data.data);
 
          },
          error: function(data){
@@ -132,81 +130,34 @@ function get_new(num, page, order, sort){
 }
 
 //生成最新
-function create_new(json, num, page,count){
+function create_new(json){
 
-	var div = '';
+	var li = '';
 
-	$.each(json.data, function(index, item){
-		div += '<div class="dealad"><a href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ') target="_blank"><img src="'+api+item.photo+'"></a><h3><a target="_blank" href="#">' + item.title + '</a></h3><h4><span><a target="_blank" href="#">' + item.name + '</a></span><a target="_blank" href="#"></a></h4></div>';
+	$.each(json, function(index, item){
+			li += '<li class="flag_out"><a target="_blank" href="' + http + item.alimama_url + '" onclick=add_read(' + item.id + ')><div class="pro_img"><img src="' + api + item.photo + '" alt="' + item.name + '"></div><div class="pro_info"><div class="tit_area"><strong class="pad10">' + item.name + '</strong></div><div class="attr"><span class="price">¥' + item.read_num + '</span><del></del></div><div class="attr"><span class="line">已售<font class="fc_index_orangeRed">' + item.read_num + '</font>件</span><span class="sales"></span><span class="">特卖商城</span></div></div></a><img src="" id="exposImg" style="display: none;"></li>';
 	});
 
-	if(json.data.length>0) {
 
-		countPage = Math.ceil(json.count/num);
+	$('#create_new').append(li);
 
-		var li = '';
-
-		if (page == 1) {
-			li += '<li class="disabled"><a href="javascript:prev(' + page + ')" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>'
-		}
-		else {
-			li += '<li class=""><a href="javascript:prev(' + page + ')" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>'	
-		}
-
-		for (var i = 1; i <= countPage; i++) {
-
-			if(page == i){
-				li += '<li class="active">';
-			}
-			else {
-				li += '<li class="">';
-			}
-
-			li += '<a href="javascript:to_num(' + i + ')">' + i + ' <span class="sr-only">(current)</span></a></li>'
-		}
-
-		if (page ==countPage) {
-			li += '<li class="disabled"><a href="javascript:next(' + page + ',' + countPage + ')" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
-		}
-		else {
-			li += '<li class=""><a href="javascript:next(' + page + ',' + countPage + ')" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>';
-		}
-
-		$('#create_new *').remove();
-		$('#totalPages .pagination *').remove();	
-
-		$('#create_new').append(div);
-		$('#totalPages .pagination').append(li);
-
-		$('#today_deals').show();
-		$('#totalPages').show();
-	}
-	else {
-		$('#today_deals').hide();
-		$('#totalPages').hide();
+	if(json.length){
+		$('.show_create_new').show();
 	}
 
-}
-
-//跳到第几页
-function to_num(page){
-	get_new(set_num, page, 'updateTime', 'desc');
-}
-
-//上一页
-function prev(page){
-	if(page > 1) {
-		get_new(set_num, page-1, 'updateTime', 'desc');
-	}
 }
 
 //下一页
-function next(page,count){
-	if (count > page){
-		get_new(set_num, page+1, 'updateTime', 'desc');
+function next(){
+	if (countPage > page){
+		page = page+1;
+		get_new('updateTime', 'desc');
 	}
-}
+	else {
+		$('#show_more').text('已经加载完全部内容');
+	}
 
+}
 
 
 

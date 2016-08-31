@@ -5,6 +5,12 @@ var https = 'https://';
 var set_num_small = 10;
 var set_num = 20;
 
+
+$(".bottomtip .close").on("click",function(){
+    $(".bottomtip").toggleClass("bottomtipclose");
+});
+
+
 //设置cookie
 function setCookie(cname, cvalue, exdays) {
     // var d = new Date();
