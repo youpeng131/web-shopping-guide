@@ -1,5 +1,5 @@
 //全局变量
-var api = 'http://localhost';
+var api = 'http://localhost:3000';
 var http = 'http://';
 var https = 'https://';
 var set_num_small = 10;
