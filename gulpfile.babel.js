@@ -27,9 +27,9 @@ function lint(files, options) {
   return () => {
     return gulp.src(files)
       .pipe(reload({stream: true, once: true}))
-      .pipe($.eslint(options))
-      .pipe($.eslint.format())
-      .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+      // .pipe($.eslint(options))
+      // .pipe($.eslint.format())
+      // .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
   };
 }
 const testLintOptions = {
@@ -68,6 +68,22 @@ gulp.task('images', () => {
       this.end();
     })))
     .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('image', () => {
+  return gulp.src('app/image/**/*')
+    .pipe($.if($.if.isFile, $.cache($.imagemin({
+      progressive: true,
+      interlaced: true,
+      // don't remove IDs from SVGs, they are often used
+      // as hooks for embedding and styling
+      svgoPlugins: [{cleanupIDs: false}]
+    }))
+    .on('error', function (err) {
+      console.log(err);
+      this.end();
+    })))
+    .pipe(gulp.dest('dist/image'));
 });
 
 gulp.task('fonts', () => {
@@ -156,7 +172,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'styles'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'image', 'fonts', 'extras', 'styles'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
