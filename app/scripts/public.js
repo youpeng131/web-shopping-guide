@@ -1,7 +1,7 @@
 //全局变量
 // var api = 'http://localhost:3000';
 // var api = 'http://139.224.19.117:3000';
-var api = 'http://http://www.shenmejie.com:3000'
+var api = 'http://www.shenmejie.com:3000'
 
 var http = 'http://';
 var https = 'https://';
