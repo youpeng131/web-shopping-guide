@@ -133,9 +133,6 @@ function login(type){
          }
      });
 
-	
-
-
 	return false;
 
 }
@@ -159,6 +156,45 @@ function userCreate(type){
          },
 	     success: function(data){
 	     	if(type){
+             window.location.href="/landedMoble.html";
+            }
+            else{
+             window.location.href="/landed.html";   
+            }
+         },
+         error: function(data){
+            data = eval('('+data.responseText+')');
+
+            alert(data.msg);
+         }
+
+
+     });
+
+    return false;
+
+}
+
+
+//注册
+function userEdit(type){
+
+    var data = getFormJson('#userEdit');
+
+    if(data.pwd != data.repassword){
+        alert('密码不一致');
+        return false;
+    }
+
+    $.ajax({
+         type: "get",
+         url: api + "/user_create?"+$('#userEdit').serialize(),
+         dataType: "json",
+         xhrFields: {
+             withCredentials: true
+         },
+         success: function(data){
+            if(type){
              window.location.href="/landedMoble.html";
             }
             else{
