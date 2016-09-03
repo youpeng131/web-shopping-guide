@@ -47,10 +47,14 @@
           </div>
           <div class="ececk_warning"><span>密码不一致</span></div>
           <div class="form_text_ipt">
-            <input name="phone" type="text" placeholder="手机号">
+            <input name="phone" type="text" id="phone" placeholder="手机号">
           </div>
           <div class="ececk_warning"><span>手机号错误</span></div>
-
+          <div class="form_text_ipt">
+            <input name="code" id = 'code' type="text" placeholder="请输入手机验证码">
+            <input type="button" id='send' value="获取验证码">
+          </div>
+          <div class="ececk_warning"><span>验证码错误</span></div>
           <div class="form_btn">
             <button type="submit">注册</button>
           </div>
@@ -70,7 +74,7 @@
 
 <!-- build:js scripts/main.js -->
 <script type="text/javascript" src="scripts/public.js"></script>
-<!-- <script src="scripts/login.js"></script> -->
+<script src="scripts/login.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -17,9 +17,10 @@ function findStr(str,n){
 window.onload=function(){
   var aInput=document.getElementsByTagName('input');
   var oName=aInput[0];
-  var dx=aInput[1];
-  var pwd=aInput[3];
-  var pwd2=aInput[4];
+  var pwd=aInput[1];
+  var pwd2=aInput[2];
+  var oIphone=aInput[3];
+  var dx=aInput[4];
 
   var aP=document.getElementsByTagName('p');
   var name_msg=aP[0];
@@ -34,6 +35,23 @@ window.onload=function(){
   send.onclick=function(){
     // 计时开始
     timer = setInterval(djs,1000);
+
+    $.ajax({
+      type: "get",
+      url: api + "/login?phone="+$('#phone').val(),
+      dataType: "json",
+     success: function(data){
+     },
+     error: function(data){
+      data = eval('('+data.responseText+')');
+
+      alert(data.msg);
+    }
+
+
+  });
+
+    
   }
   function djs(){
     send.value = times+"秒后重试";
@@ -44,6 +62,8 @@ window.onload=function(){
     if(times <= 0){
       send.value = "发送验证码";
       send.removeAttribute('disabled');
+      send.style.background='#79b235';
+      send.style.border='1px solid #79b235';
       times = 60;
       clearInterval(timer);
     }
@@ -51,7 +71,6 @@ window.onload=function(){
 
 
   //用户名检测
-
   oName.onfocus=function(){
     name_msg.style.display='block';
     oName.removeAttribute("placeholder");
@@ -59,14 +78,30 @@ window.onload=function(){
   }
 
   oName.onblur=function(){
-    // 含有非法字符 ，不能为空 ，长度少于5个字符 ，长度大于25个字符
-    var tel = /^1[3|4|5|7|8][0-9]\d{8}$/;
-    if(!tel.test(this.value)){
-      name_msg.innerHTML='<i>手机号不正确</i>';
+    if(!this.value){
+      name_msg.innerHTML='<i>用户名不能为空</i>';
       oName.style.border='1px solid red';
     }
     else{
       oName.style.border='1px solid #fff';
+    }
+  }
+
+  oIphone.onfocus=function(){
+    name_msg.style.display='block';
+    oIphone.removeAttribute("placeholder");
+    oIphone.style.border='1px solid #fff';
+  }
+
+  oIphone.onblur=function(){
+    // 含有非法字符 ，不能为空 ，长度少于5个字符 ，长度大于25个字符
+    var tel = /^1[3|4|5|7|8][0-9]\d{8}$/;
+    if(!tel.test(this.value)){
+      name_msg.innerHTML='<i>手机号不正确</i>';
+      oIphone.style.border='1px solid red';
+    }
+    else{
+      oIphone.style.border='1px solid #fff';
     }
   }
 

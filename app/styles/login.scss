@@ -82,6 +82,7 @@ em {
   color: red;
   width: 300px;
   margin: 0 auto;
+      margin-top: 3px;
   display: none;
 }
 
@@ -214,6 +215,7 @@ header {
 }
 
 .form_text_ipt {
+  position: relative;
   width: 300px;
   height: 40px;
   border: solid 1px #CCCCCC;
@@ -282,3 +284,19 @@ header {
   color: #999;
 }
 
+
+.form_text_ipt #send{
+  position: absolute;
+  margin: 3px 3px 0 0;
+  top: 0;
+  right: 0;
+  width: 87px;
+  height: 34px;
+  border-radius: 3px;
+  border: 1px solid #79b235;
+  background: #79b235;
+  color: black;
+  font-family: "Microsoft YaHei";
+  font-size: 12px;
+  cursor: pointer;
+}
