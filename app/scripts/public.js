@@ -334,7 +334,7 @@ function create_merchant(){
 // 判断浏览器
   function mobile_device_detect(url) {
   var thisOS = navigator.platform;
-    console.log(thisOS);
+    alert(thisOS);
   var os = new Array("iPhone", "iPod", "iPad", "android", "Nokia", "SymbianOS", "Symbian", "Windows Phone", "Phone", "Linux armv71", "MAUI", "UNTRUSTED/1.0", "Windows CE", "BlackBerry", "IEMobile");
   for (var i = 0; i < os.length; i++) {
   if (thisOS.match(os[i])) {
