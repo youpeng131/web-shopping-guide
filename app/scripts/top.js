@@ -54,7 +54,7 @@ function create_type(json){
 
 			html += '<div class="fls"><div class="flx"><h2>' +item.name+ '</h2><p style="margin-top: 10px;">'
 
-	         var ul = '<ul class="nav_ul"><li><h4><a href="javascript:;" target="_blank">' +item.name+ '</a></h4><p>';
+	         var ul = '<ul class="nav_ul"><li><h4><a href="javascript:;" style="cursor: default;" target="_blank">' +item.name+ '</a></h4><p>';
 
 			if(item.list){
 
