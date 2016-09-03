@@ -63,14 +63,21 @@ function create_type(json){
 		        	if (index < 10) {
 		        		if (index%2) {
 		        			html += '<a href="/list.html?type=' + _item.id + '" id="fp" target="_blank">' +_item.name+ '</a>';
-		        			ul += '<a href="/list.html?type=' + _item.id + '" class="red_f" target="_blank">' +_item.name+ '</a>';
+		        			// ul += '<a href="/list.html?type=' + _item.id + '" class="red_f" target="_blank">' +_item.name+ '</a>';
 		        		}
 		        		else {
 							html += '<a href="/list.html?type=' + _item.id + '" target="_blank">' +_item.name+ '</a>';
-							ul += '<a href="/list.html?type=' + _item.id + '" target="_blank">' +_item.name+ '</a>';
+							// ul += '<a href="/list.html?type=' + _item.id + '" target="_blank">' +_item.name+ '</a>';
 		        		}
 		        		
 		        	}
+
+		        	if (index%2) {
+		        			ul += '<a href="/list.html?type=' + _item.id + '" class="red_f" target="_blank">' +_item.name+ '</a>';
+		        		}
+		        		else {
+							ul += '<a href="/list.html?type=' + _item.id + '" target="_blank">' +_item.name+ '</a>';
+		        		}
 
 		        });
 
