@@ -1,4 +1,5 @@
 $(function(){
+	mobile_device_detect(host + "/moble.html");
 
 	checkCookie();
 	
