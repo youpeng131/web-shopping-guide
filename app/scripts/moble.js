@@ -66,18 +66,16 @@ function create_type(json){
 
 		if(item.list){
 
-			if(count == 7){
-        		html += '<li class="all_o" data-url="/m/category/category" id="type_move"><span></span><strong>更多</strong></li>'
-
-        		$('#type_move').on('click', function(){
-        			$('#create_type').css('height','auto');
-        			$(this).hide();
-
-        		});
-
-        	}
 
 	        $.each(item.list, function(index, _item){
+
+	        	if(count == 7){
+
+	        		html += '<li class="all_o" data-url="/m/category/category" id="type_move"><span></span><strong>更多</strong></li>'
+
+	        		
+
+	        	}
 
 	        	html += '<li id="' +_item.id + '" class=""><span><a href= "/mobleList.html?type=' + _item.id + '"><img src="' + api + _item.icon + '" width="50"height="50"/></a></span><strong>' +_item.name + '</strong></li>'
 	        	count ++;
@@ -87,24 +85,31 @@ function create_type(json){
 
         }
 
-        if(index == json-1){
+
+        if(index == json.length-1){
 
 	        html += '<li class="all_o" data-url="/m/category/category" id="type_hide"><span></span><strong>收起</strong></li>'
 
-	        $('#type_hide').on('click', function(){
-    			$('#create_type').css('height','174px');
-    			$('#type_move').show();
-
-    		});
+	        
         }
 
 
 	})
 
 
-    
-
     $('#create_type').append(html);
+
+    $('#type_move').bind('click', function(){
+		$('#create_type').css('height','auto');
+		$(this).hide();
+
+	});
+
+	$('#type_hide').bind('click', function(){
+		$('#create_type').css('height','174px');
+		$('#type_move').show();
+
+	});
 
 }
 
