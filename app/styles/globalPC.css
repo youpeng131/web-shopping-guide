@@ -1,0 +1,11 @@
+@media screen and (max-width: 1220px) {
+  body {
+    width: 1220px;
+  }
+}
+
+.carousel.slide {
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdsb2JhbFBDLnNjc3MiLCJnbG9iYWxQQy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTtJQUNFLGNBQ0Q7R0FBQztDQ0NIOztBREVRO0VBQ1IsaUJBQWlCO0NBQ2pCIiwiZmlsZSI6Imdsb2JhbFBDLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyMjBweCkge1xuICBib2R5IHtcbiAgICB3aWR0aDogMTIyMHB4XG4gIH1cbn1cblxuLmNhcm91c2VsLnNsaWRle1xuXHRvdmVyZmxvdzogaGlkZGVuO1xufSIsIkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyMjBweCkge1xuICBib2R5IHtcbiAgICB3aWR0aDogMTIyMHB4O1xuICB9XG59XG5cbi5jYXJvdXNlbC5zbGlkZSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */
