@@ -9,7 +9,7 @@ html, body {
   max-width: 768px;
   margin: 0 auto;
   min-width: 320px;
-  background: url(../image/login_bg.png) no-repeat;
+  background: url(../image/reg_bg.png) no-repeat;
   filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
   background-size: 100% 100%;
   min-height: 680px;
