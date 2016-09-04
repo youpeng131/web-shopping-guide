@@ -58,7 +58,7 @@ body {
   }
   /* Custom page header */
   .header {
-    width: 1200px;
+    width: 1220px;
     height: 120px;
     margin: 0 auto;
     position: relative;
@@ -136,13 +136,13 @@ body {
   #nav {
     height: 50px;
     #def-nav {
-      min-width: 1200px;
+      min-width: 1220px;
       height: 50px;
       line-height: 50px;
       border-bottom: 1px solid #f69;
       background-color: #fff;
       .inner {
-        width: 1200px;
+        width: 1220px;
         margin: 0 auto;
         ul {
           li {
@@ -244,9 +244,9 @@ body {
     }
 
     /* Responsive: Portrait tablets and up */
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1220px) {
       .container {
-        max-width: 1200px;
+        max-width: 1220px;
       }
 
       /* Remove the padding we set earlier */
@@ -272,12 +272,12 @@ body {
     /*修改*/
     /*height: 300px;*/
     width: 100%;
-    width: 1200px;
+    width: 1220px;
     margin: 0 auto;
     /*background-color: #f69;*/
   }
   .index_deal {
-    width: 1200px;
+    width: 1220px;
     margin: 0 auto;
     margin-top: 20px;
     .deals_tit {
@@ -391,8 +391,8 @@ body {
         .dealad {
           z-index: 1;
           float: left;
-          height: 347px;
-          width: 285px;
+          height: auto;
+          width: auto;
           padding: 0;
           /*修改*/
           margin: 0 15px 15px 0;
@@ -401,7 +401,7 @@ body {
           border: 1px solid transparent;
           cursor: pointer;
           h3 {
-            width: 271px;
+            width: auto;
             padding: 0 0 0 12px;
             height: 17px;
             font: 12px/20px "微软雅黑";
@@ -414,7 +414,7 @@ body {
             }
           }
           h4 {
-            width: 286px;
+            width: auto;
             padding-left: 12px;
             top: 1px;
             height: 30px;
@@ -424,7 +424,7 @@ body {
             line-height: 36px;
             span {
               float: left;
-              width: 184px;
+              width: auto;
               font: 16px/25px "微软雅黑";
               color: #333;
               overflow: hidden;
@@ -455,10 +455,9 @@ body {
           font-size: 0;
           display: block;
           background-color: #fff;
-          height: 290px;
           img {
-            width: 283px;
-            height: 283px;
+            width: 224px;
+            height: 340px;
           }
         }
         .deal {

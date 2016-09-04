@@ -6,11 +6,6 @@
 			font-family: Arial;
 			font-size: 12px;
 		}
-		@media screen and (max-width: 1200px){
-			body {
-			    width: 1200px;
-			}
-		}
 		a{
 			text-decoration: none;
 		}
@@ -28,14 +23,14 @@
 			background: #FFFFFF;
 		}
 		.topz{
-			width: 1200px;
+			width: 1220px;
 			height: 30px;
 			margin: auto;
 			text-align: right;
 		}
 		/*------------*/
 		.topz ul{
-		  width：1200px;
+		  width：1220px;
 		  height: 30px;
 		  margin: auto;
 	      margin-right: 37px;
@@ -176,7 +171,7 @@
 			height: 120px;
 		}
 		.sox{
-			width:1200px;
+			width:1220px;
 			height: 120px;
 			margin: auto;
 		}
@@ -585,7 +580,7 @@
 			background: #FFFFFF;
 		}
 		#ds{
-			width: 1200px;
+			width: 1220px;
 			height: 48px;
 			margin: auto;
 			font-size: 14px;
@@ -845,13 +840,13 @@
 		/*--------结束--*/
 		/*------center开始---*/
 		#center{
-			width: 1200px;
+			width: 1220px;
 			height: 574px;
 			margin: auto;
 			position: relative;
 		}
 		#fl{
-			width: 238px;
+			width: 258px;
 			height: 574px;
 			float: left;
 			background: #FFFFFF;
@@ -964,7 +959,7 @@
 			float: left;
 			position: absolute;
 			top: 1px;
-			left: 240px;
+			left: 260px;
 		}
 		.tu{
 			width: 960px;
@@ -1056,23 +1051,23 @@
 		.fl_s2 img{
 			width: 182px;
 			height: 145px;
-			margin-left: 5px;
+			margin-left: 9px;
 		}
 		/*---center结束---*/
 		/*下部图片开始*/
 		#di{
-			width: 1200px;
+			width: 1220px;
 			/*height: 5050px;*/
 			margin: auto;
 		}
 		/*--------护栏开始--------*/
 		.di_l{
-			width:1200px;
+			width:1220px;
 			height: 24px;
 			/*margin-top: 40px;*/
 		}
 		.di_t{
-			width: 1200px;
+			width: 1220px;
 			height: 24px;
 			float: left;
 			margin-top: 40px;
@@ -1126,7 +1121,7 @@
 		/*--------护栏结束--------*/
 		/*---------图片区域开始-------------*/
 		#tp{
-			width: 1200px;
+			width: 1220px;
 			height: 378px;
 			float:left ;
 			margin-top: 20px;
@@ -1162,7 +1157,7 @@
 		}
 		/*<!---------------------三区开始----------->*/
 		.tp3_0{
-			width: 1200px;
+			width: 1220px;
 			height: 915px;
 			float: left;
 			margin-top: 40px;
@@ -1219,7 +1214,7 @@
 		/*---------------四区开始------------*/
 		/*---------------四区开始------------*/
 		.tp3_0{
-			width: 1200px;
+			width: 1220px;
 			height: 915px;
 			float: left;
 			margin-top: 0px;
@@ -1550,7 +1545,7 @@
 		/*---------------9区结束------------*/
 		/*---------------10区开始------------*/
 		.ditp{
-			width:1200px;
+			width:1220px;
 			height: 100px;
 			margin-left: 0;
 			margin-top: 40px;
@@ -1573,7 +1568,7 @@
 			background:#f5f5f5;
 		}
 		.dis2{
-			width: 1200px;
+			width: 1220px;
 			height: 286px;
 			margin: auto;
 		}
@@ -1708,7 +1703,7 @@
 		}
 		/*-----------------------*/
 		.dss5{
-			width: 1200px;
+			width: 1220px;
 			height: 20px;
 			line-height: 20px;
 			display: block;
@@ -1748,7 +1743,7 @@
 			color :#ff6699;
 		}
 		.dss6{
-			width: 1200px;
+			width: 1220px;
 			height: 70px;
 			color: #666666;
 			float: left;
