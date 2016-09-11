@@ -4,7 +4,8 @@
 var api = 'http://www.shenmejie.com:3000'
 var host = 'http://www.shenmejie.com';
 
-var http = 'http://';
+// var http = 'http://';
+var http = '';
 var https = 'https://';
 var set_num_small = 10;
 var set_num = 20;
