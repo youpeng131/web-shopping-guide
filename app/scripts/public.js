@@ -65,7 +65,7 @@ function checkCookie() {
     var user = getCookie("nick_name");
     if(user){
         $('.topz .line2').css('width','300px');
-        $('.topz .line2').html('<a href="/landedMoble.html">' + user + '</a><a href="javascript:clearAllCookie()">退出登录</a><a href="javascript:gotoMerchandise()">我的商铺</a>');
+        $('.topz .line2').html('<a href="javascript:;">' + user + '</a><a href="javascript:clearAllCookie()">退出登录</a><a href="javascript:gotoMerchandise()">我的商铺</a>');
         $('.topz .line2').show();
         $('.topz .line3').hide();
         $('.topz .line4').hide();

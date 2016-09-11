@@ -145,6 +145,9 @@ function create_ad(json){
 
 	$.each(json, function(index, item){
 
+		tu_img += '<a href="' + http + item.alimama_url + '">';
+		fl_s0_img += '<a href="' + http + item.alimama_url + '">';
+
 		if(item.addr === 0){
 			if(!tu_img){
 				tu_img += '<img src="' + api + item.photo + '" alt="" style="display:block;" />';
@@ -158,6 +161,10 @@ function create_ad(json){
 			fl_s0_img += '<img src="' + api + item.photo + '" alt="" />';
 			fl_s0_count ++;
 		}
+
+
+		tu_img += '</a>';
+		fl_s0_img += '</a>';
 
 
 	});
