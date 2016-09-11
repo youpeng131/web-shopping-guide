@@ -87,11 +87,11 @@ function create_ad(json){
 		// images/banner1.jpg
 		if(index == 0){
 			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" class="active" style="margin-right: 3px"></li>';
-			div += '<div class="item active"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></div>';
+			div += '<div class="item active"><a href="' + http + item.alimama_url + '"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></a></div>';
 		}
 		else {
 			li += '<li data-target="#carousel-example-generic" data-slide-to="' +index+ '" style="margin-right: 3px"></li>'
-			div += '<div class="item"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></div>';
+			div += '<div class="item"><a href="' + http + item.alimama_url + '"><img src="' + api + item.photo + '" alt="" style="height: 200px;width: 100%;"></a></div>';
 		}
 	});
 
